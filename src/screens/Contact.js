@@ -7,7 +7,6 @@ import { withSafeAreaInsets } from 'react-native-safe-area-context';
 
 function Contact() {
   const [users, setUsers] = useState([]);
-  const [selectedId, setSelectedId] = useState(null);
   useEffect(()=>{
     axios.get(`https://randomuser.me/api/?results=15`)
     .then(res=>res.data)
@@ -48,7 +47,7 @@ export default function StackScreen() {
     <Stack.Navigator
       screenOptions={{
         headerTransparent:true,
-        headerTitleStyle:screenStyles.text
+        headerTitleStyle:screenStyles.headerTitle
     }}>
       <Stack.Screen name='Contact' component={Contact}/>
     </Stack.Navigator>

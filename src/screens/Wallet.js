@@ -18,7 +18,7 @@ export default function StackScreen() {
     <Stack.Navigator
       screenOptions={{
         headerTransparent:true,
-        headerTitleStyle:screenStyles.text
+        headerTitleStyle:screenStyles.headerTitle
     }}>
       <Stack.Screen name='Wallet' component={Wallet}/>
     </Stack.Navigator>
