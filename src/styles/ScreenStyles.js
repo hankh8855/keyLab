@@ -4,9 +4,9 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#1E2C39',
-    // alignItems: 'center',
+    alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 100,
+    paddingTop: 10,
     paddingLeft: 30,
   },
   text: {
@@ -14,9 +14,13 @@ export default StyleSheet.create({
   },
   headerTitle: {
     color:'yellow',
+    paddingTop: 20,
+    fontSize: 30,
+  },
+  header: {
+    height: 110,
+    backgroundColor: '#1E2C39',
     borderBottomColor:'gray',
     borderBottomWidth:2,
-    paddingTop: 30,
-    paddingBottom: 10,
   }
 });

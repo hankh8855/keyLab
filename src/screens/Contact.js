@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, FlatList, TouchableOpacity, SafeAreaView
 import { createStackNavigator } from '@react-navigation/stack';
 import screenStyles from "../styles/ScreenStyles";
 import axios from "axios";
-import { withSafeAreaInsets } from 'react-native-safe-area-context';
+import { Ionicons } from "@expo/vector-icons";
 
 function Contact() {
   const [users, setUsers] = useState([]);
@@ -31,6 +31,7 @@ function Contact() {
   return (
     <SafeAreaView style={screenStyles.container} forceInset={{ top: 'never' }}>
       <FlatList 
+        style={styles.flatList}
         data={users}
         renderItem={renderUser}
         keyExtractor={(item)=>item.login.uuid}
@@ -46,8 +47,13 @@ export default function StackScreen() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerTransparent:true,
-        headerTitleStyle:screenStyles.headerTitle
+        headerStyle:screenStyles.header,
+        headerTitleStyle:screenStyles.headerTitle,
+        headerRight: () => (
+          <TouchableOpacity style={styles.headerIcons}>
+            <Ionicons name={"person-add-outline"} color={"yellow"} size={24}/>
+          </TouchableOpacity>
+        )
     }}>
       <Stack.Screen name='Contact' component={Contact}/>
     </Stack.Navigator>
@@ -55,6 +61,15 @@ export default function StackScreen() {
 }
 
 const styles = StyleSheet.create({
+  headerIcons: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    paddingTop: 20,
+    paddingRight: 20,
+  },
+  flatList: {
+    width:'100%'
+  },
   userItem: {
     flex:1,
     flexDirection: 'row',
